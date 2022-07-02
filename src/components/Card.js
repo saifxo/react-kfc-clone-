@@ -1,8 +1,12 @@
 import React from "react";
 import pic from "../assets/img1.png";
-export default function Main({ prod }) {
+import {Link} from "react-router-dom"
+
+export default function Card({ prod }) {
   return (
+    
     <div className="col-md-4">
+      <Link to={`/detail/${prod.id}`} >
       <div class="card">
         <img src={pic} class="card-img-top" alt="..." />
         <div class="card-body">
@@ -13,6 +17,9 @@ export default function Main({ prod }) {
           </a>
         </div>
       </div>
+      </Link>
     </div>
+    
+    
   );
 }
