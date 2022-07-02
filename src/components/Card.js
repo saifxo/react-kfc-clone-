@@ -7,12 +7,12 @@ export default function Card({ prod }) {
     
     <div className="col-md-4">
       <Link to={`/detail/${prod.id}`} >
-      <div class="card">
-        <img src={pic} class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">{prod.name}</h5>
-          <p class="card-text">{prod.title}</p>
-          <a href="#" class="btn btn-primary">
+      <div className="card">
+        <img src={pic} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title">{prod.name}</h5>
+          <p className="card-text">{prod.title}</p>
+          <a href="#" className="btn btn-primary">
             PKR: {prod.price}
           </a>
         </div>
