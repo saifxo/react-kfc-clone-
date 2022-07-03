@@ -1,6 +1,16 @@
-import React from "react";
+import {React,useState,useEffect} from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios'
 function Header() {
+const [weather, setweather] = useState({})
+useEffect(()=>{
+  
+    axios.get('https://api.weatherapi.com/v1/current.json?key=1a3eb782393644a7a9c182346220307&q=rawalpindi&aqi=no')
+  .then((res)=>setweather(res.data))
+  .catch((err)=>console.log(err))
+ 
+},[])
+  
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -35,6 +45,18 @@ function Header() {
                 <Link className="nav-link" to="/Signup">
                   Sign Up
                 </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/API">
+                  API
+                </Link>
+              </li>
+              <li className="nav-item" style={{margin:"50px"}}>
+                  
+                  <p>{weather.location.name}
+                    <img src={weather.current.condition.icon} alt=""/>
+                    {weather.current.temp_c}<sup>0</sup>
+                  </p>
               </li>
             </ul>
           </div>
